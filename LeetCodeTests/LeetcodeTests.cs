@@ -89,5 +89,13 @@ namespace LeetCode.Tests
             var testfunciton = test.MaxArea(new int[] { 1, 8, 6, 2, 5, 4, 8, 3, 7 });
             Assert.AreEqual(testfunciton, 49);
         }
+
+        [TestMethod()]
+        public void CountStudentsTest()
+        {
+            var testfunciton = test.CountStudents(new int[] { 1, 1, 1, 0, 0, 1 },
+                new int[] { 1, 0, 0, 0, 1, 1 });
+            Assert.AreEqual(testfunciton, 3);
+        }
     }
 }

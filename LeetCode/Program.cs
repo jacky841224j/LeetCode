@@ -229,5 +229,33 @@ namespace LeetCode
             }
             return ans;
         }
+        //https://leetcode.com/problems/number-of-students-unable-to-eat-lunch/
+        public int CountStudents(int[] students, int[] sandwiches)
+        {
+            var Qstudents = new Queue<int>();
+            var Qsandwiches = new Queue<int>();
+
+            for(int i = 0; i < students.Length;i++)
+            {
+                Qstudents.Enqueue(students[i]);
+                Qsandwiches.Enqueue(sandwiches[i]);
+            }
+            int num = 0;
+            while (Qstudents.Count > 0) {
+                if (num == Qstudents.Count) break;
+                if (Qstudents.Peek() == Qsandwiches.Peek())
+                {
+                    Qstudents.Dequeue();
+                    Qsandwiches.Dequeue();
+                    num = 0;
+                }
+                else
+                {
+                    Qstudents.Enqueue(Qstudents.Dequeue());
+                    num++;
+                }
+            }
+            return Qstudents.Count;
+        }
     }
 }
